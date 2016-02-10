@@ -8,7 +8,8 @@ import-Module .\SandwichModule.psm1
 
 # Verify output from expected input
 
-Describe 'sandwich quality' {
+Describe 'sandwich quality' -tag 'taskRunnertest' {
+    
     $bread = 'wheat'
     $meat = 'turkey'
     $sandwich = Get-ASandwich -bread 'wheat' -meat 'turkey'
@@ -19,4 +20,4 @@ Describe 'sandwich quality' {
     It 'has the correct meat' {
         $sandwich.meat | Should Be $meat
         }
-    }
+}

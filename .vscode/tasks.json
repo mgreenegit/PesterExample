@@ -1,4 +1,5 @@
-// Ensure that test scripts are located in a subfolder of the project named 'test'.  The folder name actually comes from the task name.  Is this optimized or can it be more flexible?
+// Ensure that test scripts are located in a subfolder of the project named 'test'.
+// This uses the 'taskRunnertest' tag to specify which tests to include.
 
 // A task runner that calls Pester for testing the current project
 {
@@ -16,7 +17,8 @@
 	// Allow Pester to invoke scripts and run Pester
 	"args": [
         "if ((get-executionpolicy) -eq 'restricted') {set-executionpolicy 'remotesigned'};",
-        "invoke-pester -codecoverage ${fileDirName}"
+        "invoke-scriptanalyzer -path '.\\';",
+        "invoke-pester -codeCoverage '.\\' -tag 'taskRunnertest'"
         ],
     
     // Associate with test taskrunner
