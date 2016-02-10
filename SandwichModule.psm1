@@ -8,6 +8,6 @@ $meat
 )
     $sandwich = '' | select bread,meat
     $sandwich.bread = $bread
-    $sandwich.meat = $cheese
+    $sandwich.meat = $meat
     $sandwich
     }

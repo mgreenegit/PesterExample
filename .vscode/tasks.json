@@ -1,0 +1,29 @@
+// Ensure that test scripts are located in a subfolder of the project named 'test'
+
+// A task runner that calls Pester for testing the current project
+{
+	"version": "0.1.0",
+
+	// Start PowerShell
+	"command": "PowerShell.exe",
+
+	// The command is a shell script
+	"isShellCommand": true,
+
+	// Show the output window always
+	"showOutput": "always",
+
+	// Allow Pester to invoke scripts and run Pester
+	"args": [
+        "set-executionpolicy remotesigned;",
+        "invoke-pester -codecoverage ${fileDirName}"
+        ],
+    
+    // Associate with test taskrunner
+    "tasks": [
+        {
+            "taskName": "test",
+            "isBuildCommand": false
+        }
+    ]
+}
