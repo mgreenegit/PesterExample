@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 
 	// Start PowerShell
-	"command": "PowerShell.exe",
+	"command": "c:\\windows\\sysnative\\windowspowershell\\v1.0\\PowerShell.exe",
 
 	// The command is a shell script
 	"isShellCommand": true,
@@ -15,6 +15,7 @@
 
 	// Allow Pester to invoke scripts and run Pester
 	"args": [
+	"-NoProfile",
         "write-host 'invoking Script Analyzer...';invoke-scriptanalyzer -path '.\\' -recurse;",
         "write-host 'invoking Pester...';invoke-pester -tag 'taskRunnertest';",
         "invoke-command {write-host \"Completed all tasks in taskRunner: $args[0]\"} -args"
