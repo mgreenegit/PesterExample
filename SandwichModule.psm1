@@ -6,7 +6,7 @@ param (
 $bread,
 $meat
 )
-    $sandwich = '' | select bread,meat
+    $sandwich = '' | select-object bread,meat
     $sandwich.bread = $bread
     $sandwich.meat = $meat
     $sandwich

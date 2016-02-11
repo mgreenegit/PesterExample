@@ -1,4 +1,3 @@
-// Ensure that test scripts are located in a subfolder of the project named 'test'.
 // This uses the 'taskRunnertest' tag to specify which tests to include.
 
 // A task runner that calls Pester for testing the current project
@@ -16,9 +15,9 @@
 
 	// Allow Pester to invoke scripts and run Pester
 	"args": [
-        "if ((get-executionpolicy) -eq 'restricted') {set-executionpolicy 'remotesigned'};",
-        "invoke-scriptanalyzer -path '.\\';",
-        "invoke-pester -codeCoverage '.\\' -tag 'taskRunnertest'"
+        "write-host 'invoking Script Analyzer...';invoke-scriptanalyzer -path '.\\' -recurse;",
+        "write-host 'invoking Pester...';invoke-pester -tag 'taskRunnertest';",
+        "invoke-command {write-host \"Completed all tasks in taskRunner: $args[0]\"} -args"
         ],
     
     // Associate with test taskrunner
